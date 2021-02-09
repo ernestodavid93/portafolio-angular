@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InfoPagService } from '../../services/info-pag.service';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,7 @@ export class HeaderComponent implements OnInit {
 
   anio: number = new Date().getFullYear();
 
-  constructor() { }
+  constructor(public infoPagService: InfoPagService) { }
 
   ngOnInit(): void {
   }
