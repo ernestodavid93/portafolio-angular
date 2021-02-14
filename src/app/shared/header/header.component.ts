@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { InfoPagService } from '../../services/info-pag.service';
 
 @Component({
@@ -10,9 +11,27 @@ export class HeaderComponent implements OnInit {
 
   anio: number = new Date().getFullYear();
 
-  constructor(public infoPagService: InfoPagService) { }
+  constructor(public infoPagService: InfoPagService,
+              private router: Router) { }
 
-  ngOnInit(): void {
+  // tslint:disable-next-line:typedef
+  ngOnInit() {
+  }
+
+  
+  // tslint:disable-next-line:typedef
+  buscarProducto(termino: string){
+
+    if (termino.length < 1) {
+
+      return;
+    }
+
+    this.router.navigate(['/search', termino]);
+
+
+    // console.log(termino);
+
   }
 
 }
